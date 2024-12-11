@@ -1,6 +1,5 @@
 package org.elevator.domain;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import org.elevator.domain.type.Direction;
@@ -12,19 +11,16 @@ import java.util.Queue;
 @Setter
 public class Elevator {
 
-	private int currentFloor;
+	private int currentFloor = 0;
 	private int maxFloor;
 	private int minFloor;
 	private Direction direction;
 	private Queue<Integer> requests;
 
 	public Elevator(int maxFloor, int minFloor) {
-		currentFloor = 0;
 		this.maxFloor = maxFloor;
 		this.minFloor = minFloor;
-		if (minFloor > currentFloor) {
-			currentFloor = minFloor;
-		}
+		currentFloor = minFloor > currentFloor ? minFloor : 0;
 		requests = new LinkedList<>();
 		direction = Direction.IDLE;
 	}
