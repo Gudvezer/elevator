@@ -15,7 +15,7 @@ public class Main {
 		System.out.println("Здравствуйте! Вы в приложении по использованию лифта.");
 		ElevatorService elevatorService = new ElevatorService();
 		Scanner scanner = new Scanner(System.in);
-		Elevator elevator = createElevatorFlow(scanner, elevatorService);
+		Elevator elevator = createElevatorFlow(scanner);
 		while (true) {
 
 			System.out.println("Введите один или несколько этажей, на которые нужно отправить. Через запятую и без пробелов.");
@@ -37,7 +37,7 @@ public class Main {
 			int decision = getIntInput(scanner, "Вы проехали все этажи. Желаете продолжить с нынешнего этажа или создать новый лифт? (1 или 2)");
 
 			if (decision == 2) {
-				elevator = createElevatorFlow(scanner, elevatorService);
+				elevator = createElevatorFlow(scanner);
 			}
 		}
 	}
@@ -72,7 +72,7 @@ public class Main {
 		return scanner.nextInt();
 	}
 
-	public static Elevator createElevatorFlow(Scanner scanner, ElevatorService elevatorService) {
+	public static Elevator createElevatorFlow(Scanner scanner) {
 		Elevator elevator;
 		System.out.println("Хотите ли создать собственный лифт или стандартный? Введите число 1 для создания своего или любое другое для стандартного.");
 		int choice = scanner.nextInt();
